@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import 'primeicons/primeicons.css';
 import "./globals.css";
+import Topbar from "@/components/Topbar";
+import Appbar from "@/components/Appbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Topbar />
+        <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7">
+          <Appbar />
+          <main className="w-full h-full bg-slate-800 overflow-y-auto overflow-x-hidden">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   );
 }
+
+/* 5.8rem */
