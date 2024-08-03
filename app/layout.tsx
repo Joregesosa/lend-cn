@@ -23,7 +23,7 @@ export default function RootLayout({
         <Topbar />
         <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7">
           <Appbar />
-          <main className="w-full h-full bg-slate-800 overflow-y-auto overflow-x-hidden">
+          <main className="w-full h-full overflow-y-auto overflow-x-hidden p-2">
             {children}
           </main>
         </div>
@@ -31,5 +31,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-/* 5.8rem */

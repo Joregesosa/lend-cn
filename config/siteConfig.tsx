@@ -1,4 +1,3 @@
-import { Content } from "next/font/google";
 
 export const AppMenu = {
     Home: {
@@ -7,7 +6,7 @@ export const AppMenu = {
         icon: "pi pi-home",
         permission: "dashboard.view"
     },
-    
+
     Operaciones: [
         {
             title: "Prestamos",
@@ -67,13 +66,13 @@ export const AppMenu = {
             content: [
                 {
                     title: "Usuarios",
-                    href: "/usuarios",
+                    href: "/users",
                     icon: "pi pi-users",
                     permission: "usuarios.view"
                 },
                 {
                     title: "Nuevo Usuarios",
-                    href: "/usuarios/nuevo",
+                    href: "/users/new",
                     icon: "pi pi-user-plus",
                     permission: "usuarios.create"
                 },
