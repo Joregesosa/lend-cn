@@ -13,13 +13,13 @@ export const AppMenu = {
             icon: "pi pi-money-bill",
             content: [
                 {
-                    title: "Tabla de Mortizaciones",
+                    title: "Tabla de amortización",
                     href: "/prestamos/tabla",
                     icon: "pi pi-table",
                     permission: "default"
                 }
                 , {
-                    title: "Nuevo Prestamo",
+                    title: "Nuevo Préstamo",
                     href: "/prestamos/solicitar",
                     icon: "pi pi-plus-circle",
                     permission: "prestamos.create"
@@ -90,15 +90,12 @@ export const AppMenu = {
                 },
                 {
                     title: "Nuevo Rol",
-                    href: "/roles/nuevo",
+                    href: "/roles/new",
                     icon: "pi pi-plus-circle",
                     permission: "roles.create"
                 }
             ]
         }
 
-    ]
-
-
-
+    ],
 }

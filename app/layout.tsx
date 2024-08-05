@@ -4,6 +4,7 @@ import 'primeicons/primeicons.css';
 import "./globals.css";
 import Topbar from "@/components/Topbar";
 import Appbar from "@/components/Appbar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Topbar />
-        <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7">
-          <Appbar />
-          <main className="w-full h-full overflow-y-auto overflow-x-hidden p-2">
-            {children}
-          </main>
-        </div>
+ 
+          <Topbar />
+          <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7">
+            <Appbar />
+            <main className="w-full h-full overflow-y-auto overflow-x-hidden p-2">
+              {children}
+            </main>
+          </div>
       </body>
     </html>
   );

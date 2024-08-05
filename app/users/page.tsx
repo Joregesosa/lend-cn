@@ -1,21 +1,31 @@
-import { Users as users, columns } from "./columns"
-import { DataTable } from "./data-table"
+"use client"
 
-async function getData(): Promise<users[]> {
-    // Fetch data from your API here.
-    return [
-        { id: "1", fullName: "John Doe", status: "Active", email: "example@gmail.com", role: "Admin" },
-        { id: "2", fullName: "Jane Doe", status: "Inactive", email: "example2@gmail.com", role: "User" },
-        // ...
-    ]
-}
+import * as React from "react"
+import { Type, columns } from "./columns"
+import { DataTable } from "@/components/DataTable"
 
-export default async function Users() {
-    const data = await getData()
+const data: Type[] = [
+    {
+        id: "1",
+        fullName: "John Doe",
+        status: "Active",
+        email: "John@hotmail.com",
+        role: "Admin",
+    },
+    {
+        id: "2",
+        fullName: "Jane Doe",
+        status: "Active",
+        email: "Jane@hotmail.com",
+        role: "User",
+    },
+]
+
+
+export default function Users() {
+   
 
     return (
-        <div className="container mx-auto py-10">
-            <DataTable columns={columns} data={data} />
-        </div>
+         <DataTable data={data} columns={columns}/>
     )
-}
+} 

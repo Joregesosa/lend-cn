@@ -33,7 +33,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({ className, onChange }) =
                     )}
                 >
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, "yyyy-MM-dd") : <span>Selecionar fecha</span>}
+                    {date ? format(date, "yyyy-MM-dd") : <span>Seleccionar fecha</span>}
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">

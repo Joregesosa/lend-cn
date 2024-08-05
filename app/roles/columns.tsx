@@ -5,10 +5,9 @@ import { ColumnDef } from "@tanstack/react-table"
 
 export type Type = {
     id: string,
-    fullName: string,
+    rol: string,
     status: string,
-    email: string,
-    role: string,
+    permissions: string,
 }
 
 export const columns: ColumnDef<Type>[] = [
@@ -17,25 +16,21 @@ export const columns: ColumnDef<Type>[] = [
         accessorKey: "id",
     },
     {
-        header: "Nombre",
-        accessorKey: "fullName",
+        header: "Rol",
+        accessorKey: "rol",
     },
     {
         header: "Status",
         accessorKey: "status",
     },
     {
-        header: "Email",
-        accessorKey: "email",
-    },
-    {
-        header: "Role",
-        accessorKey: "role",
+        header: "Permissions",
+        accessorKey: "permissions",
     },
     {
         id: "actions",
         enableHiding: false,
-        cell:({row})=> ActionMenu({row, endpoint: `/users/edit/${row.original.id}`}),
+        cell: ({ row }) => ActionMenu({ row, endpoint: `/roles/edit/${row.original.id}` }),
     },
 ]
 
