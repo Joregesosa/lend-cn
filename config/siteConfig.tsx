@@ -14,7 +14,7 @@ export const AppMenu = {
             content: [
                 {
                     title: "Tabla de amortización",
-                    href: "/prestamos/tabla",
+                    href: "/loans/amortization",
                     icon: "pi pi-table",
                     permission: "default"
                 }
