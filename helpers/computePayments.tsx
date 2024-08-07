@@ -1,6 +1,6 @@
 export type PaymentType = 'daily' | 'weekly' | 'biweekly' | 'monthly';
 
-interface InstallmentDetail {
+export type InstallmentDetail = {
     installmentNumber: number;
     installmentAmount: number;
     principal: number;
@@ -20,7 +20,7 @@ export function calculateInstallments(_amount: number, _term: number, _annualInt
         biweekly: interest / 24 / 100,
         monthly: interest / 12 / 100
     };
-
+ 
     const fixedInstallment = (amount * interestRates[_type] * Math.pow(1 + interestRates[_type], term)) / (Math.pow(1 + interestRates[_type], term) - 1);
 
     const installments: InstallmentDetail[] = [];
@@ -44,13 +44,56 @@ export function calculateInstallments(_amount: number, _term: number, _annualInt
         });
     }
 
-    /*   if (balance > 0) {
-          installments.forEach((installment) => {
-              const remanent = balance / term;
-              installment.principal += remanent;
-              installment.installmentAmount += remanent;
-          })
-          installments[installments.length - 1].remainingBalance = 0;
-      } */
+  /*   if (balance > 0) {
+        installments.forEach((installment) => {
+            const remanent = balance / term;
+            installment.principal += remanent;
+            installment.installmentAmount += remanent;
+        })
+        installments[installments.length - 1].remainingBalance = 0;
+    } */
     return installments;
 }
+/* Este es mi propio metodo pero no esta apegado a ningun estandar */
+/* function calcularCuotas(_monto: number, tipo: TipoPago, _plazo: number, _interes: number) {
+        let monto: number = Number(_monto);
+        let plazo: number = Number(_plazo);
+        let interes: number = Number(_interes);
+
+        let totalInteres = monto * interes / 100;
+        let totalPagar = monto + totalInteres;
+        let proyeccion: number = totalPagar / plazo;
+        const cuotas: CuotaDetalle[] = [];
+
+        for (let i = 0; i < plazo; i++) {
+            if ((i + 1) === plazo) {
+                cuotas.push({
+                    numeroCuota: i + 1,
+                    cuota: monto + totalInteres,
+                    capital: monto,
+                    interes: totalInteres,
+                    saldoRestante: 0.00
+                });
+                break;
+            }
+            let interesCuota = totalInteres * 60 / 100;
+            totalInteres -= interesCuota;
+            let capitalCuota = proyeccion - interesCuota;
+            monto -= capitalCuota;
+
+            cuotas.push({
+                numeroCuota: i + 1,
+                cuota: proyeccion,
+                capital: capitalCuota,
+                interes: interesCuota,
+                saldoRestante: monto
+            });
+
+
+        }
+
+        console.log(cuotas);
+
+
+    }
+ */

@@ -24,14 +24,16 @@ import {
 import { VisibilityDropdown } from "@/components/DataTable/VisibilityDropdown"
 import Filter from "@/components/DataTable/Filter"
 import { DataTablePagination } from "@/components/DataTable/DataTablePagination"
+import { ScrollArea } from "../ui/scroll-area"
 
 interface DataTableProps {
     columns: any,
-    data: any
+    data: any,
+    scrolableClassName?: string,
+    filterField?: string
 }
 
-export const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
-
+export const DataTable: React.FC<DataTableProps> = ({ data, columns, filterField, scrolableClassName }) => {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
@@ -61,13 +63,16 @@ export const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
     return (
         <div className="w-full">
             <div className="flex items-center py-4">
+                {filterField &&
+                    <Filter table={table} field={filterField ? filterField : ''} />
 
-                <Filter table={table} field="email" />
+                }
 
                 <VisibilityDropdown table={table} />
 
             </div>
-            <div className="rounded-md border">
+
+            <ScrollArea className={`rounded-md border ${scrolableClassName}`}>
                 <Table>
                     <TableHeader >
                         {table.getHeaderGroups().map((headerGroup) => (
@@ -116,7 +121,7 @@ export const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
                         )}
                     </TableBody>
                 </Table>
-            </div>
+            </ScrollArea>
             <DataTablePagination table={table} />
         </div>
     )

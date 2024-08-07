@@ -3,9 +3,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ComboBox } from '@/components/ui/combobox';
 import React, { useEffect } from 'react'
-import { calculateInstallments, PaymentType } from '@/helpers/computePayments'
-const types = [
+import { calculateInstallments, InstallmentDetail, PaymentType } from '@/helpers/computePayments'
+import { DataTable } from '@/components/DataTable';
+import { columns } from './columns'
+import { ScrollArea } from '@/components/ui/scroll-area';
 
+const types = [
     {
         value: 'monthly',
         label: 'Mensual'
@@ -25,10 +28,6 @@ const types = [
 ]
 
 
-
-
-
-
 type Values = {
     monto: string
     tipo: string
@@ -38,18 +37,16 @@ type Values = {
 
 const Page = () => {
     const [values, setValues] = React.useState<Values>({
-        monto: '',
-        tipo: '',
-        plazo: '',
-        tasa: ''
+        monto: '', tipo: '', plazo: '', tasa: ''
     })
+    const [installments, setInstallments] = React.useState<InstallmentDetail[]>([])
+
 
     useEffect(() => {
         const { monto, tipo, plazo, tasa } = values;
         if (monto && tipo && plazo && tasa) {
             const cuotas = calculateInstallments(Number(monto), Number(plazo), Number(tasa), tipo as PaymentType);
-            console.log(cuotas);
-
+            setInstallments(cuotas)
         }
     }, [values]);
 
@@ -62,7 +59,9 @@ const Page = () => {
 
     return (
         <>
-            <div className="grid form-grid gap-4">
+
+            <div className="grid form-grid gap-4 bg-slate-100 z-10">
+                <h2 className='font-bold text-2xl pb-2 col-span-4'>Tabla amortizadora</h2>
                 <Label htmlFor="monto">
                     Monto del préstamo
                     <Input
@@ -112,52 +111,9 @@ const Page = () => {
                 </Label>
 
             </div>
-
+            <DataTable columns={columns} data={installments} scrolableClassName='h-[calc(100vh-420px)]'/>
         </>
     )
 }
 
 export default Page
-
-/* function calcularCuotas(_monto: number, tipo: TipoPago, _plazo: number, _interes: number) {
-        let monto: number = Number(_monto);
-        let plazo: number = Number(_plazo);
-        let interes: number = Number(_interes);
-
-        let totalInteres = monto * interes / 100;
-        let totalPagar = monto + totalInteres;
-        let proyeccion: number = totalPagar / plazo;
-        const cuotas: CuotaDetalle[] = [];
-
-        for (let i = 0; i < plazo; i++) {
-            if ((i + 1) === plazo) {
-                cuotas.push({
-                    numeroCuota: i + 1,
-                    cuota: monto + totalInteres,
-                    capital: monto,
-                    interes: totalInteres,
-                    saldoRestante: 0.00
-                });
-                break;
-            }
-            let interesCuota = totalInteres * 60 / 100;
-            totalInteres -= interesCuota;
-            let capitalCuota = proyeccion - interesCuota;
-            monto -= capitalCuota;
-
-            cuotas.push({
-                numeroCuota: i + 1,
-                cuota: proyeccion,
-                capital: capitalCuota,
-                interes: interesCuota,
-                saldoRestante: monto
-            });
-
-
-        }
-
-        console.log(cuotas);
-
-
-    }
- */

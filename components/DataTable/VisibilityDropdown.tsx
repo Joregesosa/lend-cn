@@ -34,7 +34,7 @@ export const VisibilityDropdown: React.FC<VisibilityDropdownProps> = ({ table })
                                     column.toggleVisibility(!!value)
                                 }
                             >
-                                {column.id}
+                                {column.columnDef.header}
                             </DropdownMenuCheckboxItem>
                         )
                     })}

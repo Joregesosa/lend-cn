@@ -21,14 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
- 
-          <Topbar />
-          <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7">
-            <Appbar />
-            <main className="w-full h-full overflow-y-auto overflow-x-hidden p-2">
-              {children}
-            </main>
-          </div>
+
+        <Topbar />
+        <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7 overflow-y-hidden">
+          <Appbar />
+          <main className="w-full h-full overflow-x-hidden p-2 overflow-y-hidden">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
