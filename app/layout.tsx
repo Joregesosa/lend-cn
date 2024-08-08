@@ -23,10 +23,12 @@ export default function RootLayout({
       <body className={inter.className}>
 
         <Topbar />
-        <div className="w-full h-[calc(100vh-4.5rem)] -z-10 px-7 py-7 flex gap-7 overflow-y-hidden">
+        <div className="w-full -z-10 px-5 py-7 flex gap-5 ">
           <Appbar />
-          <main className="w-full h-full overflow-x-hidden p-2 overflow-y-hidden">
-            {children}
+          <main className="w-full overflow-x-hidden p-2">
+            <ScrollArea className='h-[calc(100vh-8.4rem)] px-2'>
+              {children}
+            </ScrollArea>
           </main>
         </div>
       </body>

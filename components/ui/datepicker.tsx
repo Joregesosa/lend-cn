@@ -8,10 +8,11 @@ import { format } from "date-fns"
 
 interface DatePickerProps {
     className?: string,
-    onChange?: (date: Date | undefined) => void
+    onChange?: (date: Date | undefined) => void,
+    name: string,
 }
 
-export const DatePicker: React.FC<DatePickerProps> = ({ className, onChange }) => {
+export const DatePicker: React.FC<DatePickerProps> = ({ className, onChange, name }) => {
     const [date, setDate] = React.useState<Date>()
 
     const handleDateChange = (date: Date | undefined) => {
@@ -27,6 +28,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({ className, onChange }) =
             <PopoverTrigger asChild>
                 <Button
                     variant={"outline"}
+                    name={name}
                     className={cn(
                         `w-full justify-start text-left font-normal ${className}`,
                         !date && "text-muted-foreground"

@@ -6,27 +6,8 @@ import React, { useEffect } from 'react'
 import { calculateInstallments, InstallmentDetail, PaymentType } from '@/helpers/computePayments'
 import { DataTable } from '@/components/DataTable';
 import { columns } from './columns'
-import { ScrollArea } from '@/components/ui/scroll-area';
-
-const types = [
-    {
-        value: 'monthly',
-        label: 'Mensual'
-    },
-    {
-        value: 'biweekly',
-        label: 'Quincenal'
-    },
-    {
-        value: 'weekly',
-        label: 'Semanal'
-    },
-    {
-        value: 'daily',
-        label: 'Diario'
-    },
-]
-
+import { loanType } from '../types';
+ 
 
 type Values = {
     monto: string
@@ -78,7 +59,7 @@ const Page = () => {
                     Frecuencia de pago
                     <ComboBox
 
-                        options={types}
+                        options={loanType}
                         optionlabel='label'
                         optionvalue='value'
                         name="tipo"

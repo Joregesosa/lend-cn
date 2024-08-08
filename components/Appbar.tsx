@@ -6,7 +6,7 @@ import { ScrollArea } from './ui/scroll-area'
 
 export default function Appbar() {
   return (
-    <aside className="w-[280px] h-full bg-white rounded-xl shadow-md  overflow-x-hidden flex-shrink-0">
+    <aside className="w-[280px] h-[calc(100vh-8.1rem)] bg-white rounded-xl shadow-md  overflow-x-hidden flex-shrink-0">
       <ScrollArea className="h-full py-4">
         <Accordion type="single" collapsible className='mx-2 px-2'>
           {

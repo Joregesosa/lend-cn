@@ -20,13 +20,13 @@ export const AppMenu = {
                 }
                 , {
                     title: "Nuevo Préstamo",
-                    href: "/prestamos/solicitar",
+                    href: "/loans/new",
                     icon: "pi pi-plus-circle",
                     permission: "prestamos.create"
                 },
                 {
                     title: "Solicitudes",
-                    href: "/prestamos/solicitudes",
+                    href: "/loans",
                     icon: "pi pi-list",
                     permission: "prestamos.view"
                 }
@@ -34,28 +34,23 @@ export const AppMenu = {
         },
         {
             title: "Cobros",
-            icon: "pi pi-money-bill",
+            icon: "pi pi-wallet",
             content: [
                 {
-                    title: "Tabla de Mortizaciones",
-                    href: "/prestamos/tabla",
-                    icon: "pi pi-table",
-                    permission: "default"
-                }
-                , {
-                    title: "Nuevo Prestamo",
-                    href: "/prestamos/solicitar",
+                    title: "Nuevo Cobro",
+                    href: "/collections/new",
                     icon: "pi pi-plus-circle",
-                    permission: "prestamos.create"
+                    permission: "cobros.create"
                 },
                 {
-                    title: "Solicitudes",
-                    href: "/prestamos/solicitudes",
+                    title: "Cobros",
+                    href: "/collections",
                     icon: "pi pi-list",
-                    permission: "prestamos.view"
+                    permission: "cobros.view"
                 }
             ]
-        },
+        }
+      
 
     ],
 
