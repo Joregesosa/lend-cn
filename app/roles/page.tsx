@@ -35,6 +35,10 @@ export default function Roles() {
 
 
     return (
-        <DataTable data={data} columns={columns} />
+        <>
+        <h2 className='font-bold text-2xl pb-2 col-span-4'>Lista de roles</h2>
+        <DataTable data={data} columns={columns} scrollableClassName='h-[calc(100vh-340px)]' filterField="rol"/>
+        </>
+        
     )
 } 

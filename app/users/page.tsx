@@ -23,9 +23,13 @@ const data: Type[] = [
 
 
 export default function Users() {
-   
+
 
     return (
-         <DataTable data={data} columns={columns}/>
+        <>
+            <h2 className='font-bold text-2xl pb-2 col-span-4'>Lista de usuarios</h2>
+            <DataTable data={data} columns={columns} filterField="fullName" scrollableClassName='h-[calc(100vh-340px)]' />
+        </>
+
     )
 } 

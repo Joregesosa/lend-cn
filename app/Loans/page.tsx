@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { DataTable } from '@/components/DataTable'
 import { columns } from './columns'
@@ -142,13 +143,10 @@ const data = [
 export default function Requests() {
 
     return (
-        <div >   
+        <>
             <h2 className='font-bold text-2xl pb-2 col-span-4'>Lista de solicitudes</h2>
-            <DataTable columns={columns} data={data} filterField='name' scrolableClassName='h-[calc(100vh-340px)]'/>
-        </div>
+            <DataTable columns={columns} data={data} filterField='name' scrollableClassName='h-[calc(100vh-340px)]' />
+        </>
     )
 
 }
-
-
-

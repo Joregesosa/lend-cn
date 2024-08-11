@@ -1,3 +1,4 @@
+import { ActionMenu } from "@/components/DataTable/ActionMenu"
 import { ColumnDef } from "@tanstack/react-table"
 
 
@@ -31,6 +32,11 @@ export const columns: ColumnDef<LoansRequests>[] = [
     {
         header: 'Estado',
         accessorKey: 'status',
+    },
+    {
+        id: "actions",
+        enableHiding: false,
+        cell: ({ row }) => ActionMenu({ row, endpoint: `/roles/edit/${row.original.id}` }),
     },
 ]
 

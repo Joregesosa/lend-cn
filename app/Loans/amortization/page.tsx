@@ -92,7 +92,7 @@ const Page = () => {
                 </Label>
 
             </div>
-            <DataTable columns={columns} data={installments} scrolableClassName='h-[calc(100vh-420px)]'/>
+            <DataTable columns={columns} data={installments} scrollableClassName='h-[calc(100vh-420px)]'/>
         </>
     )
 }

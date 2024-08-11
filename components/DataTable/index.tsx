@@ -29,11 +29,11 @@ import { ScrollArea } from "../ui/scroll-area"
 interface DataTableProps {
     columns: any,
     data: any,
-    scrolableClassName?: string,
+    scrollableClassName?: string,
     filterField?: string
 }
 
-export const DataTable: React.FC<DataTableProps> = ({ data, columns, filterField, scrolableClassName }) => {
+export const DataTable: React.FC<DataTableProps> = ({ data, columns, filterField, scrollableClassName }) => {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
@@ -72,7 +72,7 @@ export const DataTable: React.FC<DataTableProps> = ({ data, columns, filterField
 
             </div>
 
-            <ScrollArea className={`rounded-md border ${scrolableClassName}`}>
+            <ScrollArea className={`rounded-md border ${scrollableClassName}`}>
                 <Table>
                     <TableHeader >
                         {table.getHeaderGroups().map((headerGroup) => (

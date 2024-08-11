@@ -53,7 +53,6 @@ export default function Edit() {
                             </FormItem>
                         )}
                     />
-
                 </legend>
                 <Permissions form={form} />
                 <Button type="submit">Submit</Button>
